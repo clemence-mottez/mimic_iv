@@ -1,4 +1,4 @@
-# ** Enhancing Performance and Interpretability of Machine Learning for Chest X-ray Diagnosis using Transfer Learning on the MIMIC-IV dataset**
+# **Enhancing Performance and Interpretability of Machine Learning for Chest X-ray Diagnosis using Transfer Learning on the MIMIC-IV dataset**
 ### **Introduction**
 The goal of this project is to predict lung disease or dysfunction from X-ray images and other relevant clinical features and measurements using the MIMIC-4 dataset. Recently, the use of Deep Learning for CXR has been a common technology in detecting Chronic Respiratory Diseases (CRD) with high or even human-level accuracy. But current techniques only focus on CXR images, they often neglect the potential advantages of incorporating non-imagery information of patients. 
 The goal of this project is to combine imagery and non-imagery data in order to advance CXR diagnostics. Our method aims to increase prediction accuracy while maintaining the speed and efficiency of deep learning through the concept of transfer learning. Our goal is to optimize machine learning's effectiveness in supporting medical professionals.  
