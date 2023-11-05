@@ -2,13 +2,9 @@
 
 
 ## Description
+Recently, the use of Deep Learning for Chest X-ray (CXR) has been a common technology in detecting Chronic Respiratory Diseases (CRD) with high or even human-level accuracy. But current techniques only focus on CXR images, they often neglect the potential advantages of incorporating non-imagery information of patients. 
 
-### **Introduction**
-The goal of this project is to predict lung disease or dysfunction from X-ray images and other relevant clinical features and measurements using the MIMIC-4 dataset. Recently, the use of Deep Learning for CXR has been a common technology in detecting Chronic Respiratory Diseases (CRD) with high or even human-level accuracy. But current techniques only focus on CXR images, they often neglect the potential advantages of incorporating non-imagery information of patients. 
-The goal of this project is to combine imagery and non-imagery data in order to advance CXR diagnostics. Our method aims to increase prediction accuracy while maintaining the speed and efficiency of deep learning through the concept of transfer learning. Our goal is to optimize machine learning's effectiveness in supporting medical professionals.  
-
-### **Research Aim**
-In this work, we propose a multi-faceted predictive system that uses TL to infuse EHR data into the ML-based CRD diagnosis using CXR. The system is expected to maintain the highly accurate nature of DL and the informativeness of Electronic Health Records (HER) and classical ML models. Rigorous testing and validation will be carried out in 2 stages, the first stage will evaluate the performance of the proposed system, and the second stage will delve deeper into investigating the model’s decision-making process. By adopting a comprehensive evaluation strategy, encompassing both performance metrics and interpretability measures, we expect to answer the following research question: Does incorporating EHR data into CXR diagnosis for CRD help in improving the ML model’s performance, transparency and trustworthiness in its decision-making processes?
+The goal of this project is to combine imagery and non-imagery data in order to advance CXR diagnostics. Our method aims to increase prediction accuracy while maintaining the speed and efficiency of deep learning through the concept of transfer learning. Our goal is to optimize machine learning's effectiveness in supporting medical professionals. 
 
 ## **Structure Overview**
 The following is an overview of our repository:
@@ -60,7 +56,8 @@ This is the recommended method. **Hyperlinks that make reference to plots will o
 
 **Note:** In case of any incompatibilities due to Colab changing package versions, add the following code cell to the start of your notebook and run it:
 ```
-!pip install pandas==1.5.3 matplotlib==3.7.1 seaborn==0.12.2 numpy==1.23.5 tqdm==4.66.1 scikit-learn==1.2.2
+!wget https://github.com/clemence-mottez/mimic_iv/raw/main/requirements.txt
+!pip install requirements.txt
 ``` 
 
 #### Running on local
