@@ -1,5 +1,11 @@
 # Enhancing Chest X-ray Diagnosis for Respiratory Diseases using Transfer Learning
 
+## Author
+- Khoi Nguyen
+- Clemence Mottez
+- Ivy Liang
+- Xiaochen Hou
+- Qichi Liang
 
 ## Description
 Recently, the use of Deep Learning for Chest X-ray (CXR) has been a common technology in detecting Chronic Respiratory Diseases (CRD) with high or even human-level accuracy. But current techniques only focus on CXR images, they often neglect the potential advantages of incorporating non-imagery information of patients. 
@@ -61,8 +67,6 @@ This is the recommended method. **Hyperlinks that make reference to plots will o
 ``` 
 
 #### Running on local
-Note that **hyperlinks that make reference to plots will not work, as local Jupyter notebook does not support HTML!**
-
 In most cases, the notebook can be run locally by just installing the required package versions with the following command (`requirements.txt` is assumed to be in the same directory as your notebook):
 
 ```bash
