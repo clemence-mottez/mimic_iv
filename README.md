@@ -1,4 +1,8 @@
-# **Enhancing Performance and Interpretability of Machine Learning for Chest X-ray Diagnosis using Transfer Learning on the MIMIC-IV dataset**
+# Enhancing Chest X-ray Diagnosis for Respiratory Diseases using Transfer Learning
+
+
+## Description
+
 ### **Introduction**
 The goal of this project is to predict lung disease or dysfunction from X-ray images and other relevant clinical features and measurements using the MIMIC-4 dataset. Recently, the use of Deep Learning for CXR has been a common technology in detecting Chronic Respiratory Diseases (CRD) with high or even human-level accuracy. But current techniques only focus on CXR images, they often neglect the potential advantages of incorporating non-imagery information of patients. 
 The goal of this project is to combine imagery and non-imagery data in order to advance CXR diagnostics. Our method aims to increase prediction accuracy while maintaining the speed and efficiency of deep learning through the concept of transfer learning. Our goal is to optimize machine learning's effectiveness in supporting medical professionals.  
@@ -6,18 +10,82 @@ The goal of this project is to combine imagery and non-imagery data in order to 
 ### **Research Aim**
 In this work, we propose a multi-faceted predictive system that uses TL to infuse EHR data into the ML-based CRD diagnosis using CXR. The system is expected to maintain the highly accurate nature of DL and the informativeness of Electronic Health Records (HER) and classical ML models. Rigorous testing and validation will be carried out in 2 stages, the first stage will evaluate the performance of the proposed system, and the second stage will delve deeper into investigating the model’s decision-making process. By adopting a comprehensive evaluation strategy, encompassing both performance metrics and interpretability measures, we expect to answer the following research question: Does incorporating EHR data into CXR diagnosis for CRD help in improving the ML model’s performance, transparency and trustworthiness in its decision-making processes?
 
-### **Github Overview**
-Different documents and resources are at your disposal in this repository to support our project: 
-**Jupyter Notebooks: **
--	cohort_and_x_ray_selection.ipynb: This notebook contains code for querying the cohort of patients we are studying and choosing relevant X-ray images.
--	x_ray_data.ipynb: In this notebook, you will find the code for creating a dataset that includes the X-ray features and links them to a specific **subject_id** and **hadm_id** identifiers.
--	Final_data.ipynb: This notebook queries and adds additional features to our cohort of patients and incorporate diagnoses for each disease. 
--	EBM.ipynb: This notebook focuses on training an Explainable Boosting Machine (EBM) model to assess the effect and importance of each feature on our model's predictions. EBM is a machine learning model designed to provide transparency and interpretability.
--	Feature_importance.ipynb: In this notebook, we train an XGBoost Gain Importance model and use eBoruta with SHAP importance measures to help identify the key variables that have the most significant impact on our model's accuracy by evaluating and quantifying the effect of each feature on the model’s predictive power.
+## **Structure Overview**
+The following is an overview of our repository:
+```shell
+Root
+├───Code
+│   ├───Cohort Formation
+│   └───Evaluation Models
+└───Results
+    ├───Images
+    └───Tables
+```
 
-**Pdf files:**
--	Project_Proposal.pdf: This document contains our project proposal, outlining the initial plan and objectives.
--	Final report.pdf: The final report can be found in this file. It summarizes the outcomes and findings of our project, providing a comprehensive overview of our work.
+Different scripts are implemented in this repository for this project: 
+
+```shell
+├───Code
+│   ├───Cohort Formation
+│   │       CohortSelection.ipynb           # Filter cohort by existence in MIMIC-CXR
+│   │       CXRRetrieval.ipynb              # Selecting 1 CXR for each patient
+│   │       FinalisedCohortData.ipynb       # Feature extraction on MIMIC-IV, finalising data (to be run last)
+│   │       TranserLearning_Colab.ipynb     # Extract latent features from CXR images (to be run on Colab)
+│   │       TransferLearning_Local.ipynb    # Extract latent features from CXR images (to be run locally)
+│   │
+│   └───Evaluation Models
+│           EBM.ipynb                       # Running Explainable Boosting Model to evaluate feature importance (deprecated)
+│           EDA.ipynb                       # Exploratory Data Analysis on cohort data
+│           Evaluation.ipynb                # Perform data split, model runs and plot out some results
+│           FeatureImportance.ipynb         # Extract feature importance metrics
+```
 
 ### **Data**
-The project relies on the MIMIC-IV dataset, which contains a wide range of clinical and image data for analysis. You need a special training to have access to this data. 
+The project relies on the MIMIC-IV dataset, which contains a wide range of clinical and image data for analysis. You need a [special training](https://physionet.org/content/mimiciv/view-required-training/2.2/#1) to have access to this data.
+
+## Requirements
+This notebook is run on Python 3.10.12, with packages specified in `requirements.txt`. 
+- The notebook was originally executed on Google Colab. 
+- Minimum 4GB of memory required.
+- GPU resource is not required.
+
+
+### Environment Setup
+There are 2 ways of running the notebook: using Colab and running on local.
+
+#### Running on Colab (Recommended)
+This is the recommended method. **Hyperlinks that make reference to plots will only work on Colab!**
+1. Install [Google Colaboratory](https://workspace.google.com/u/0/marketplace/app/colaboratory/1014160490159) on your [Google Drive](https://drive.google.com).
+2. Upload your `.ipynb` notebook file to Google Drive. The notebook should automatically open on Colab.
+
+**Note:** In case of any incompatibilities due to Colab changing package versions, add the following code cell to the start of your notebook and run it:
+```
+!pip install pandas==1.5.3 matplotlib==3.7.1 seaborn==0.12.2 numpy==1.23.5 tqdm==4.66.1 scikit-learn==1.2.2
+``` 
+
+#### Running on local
+Note that **hyperlinks that make reference to plots will not work, as local Jupyter notebook does not support HTML!**
+
+In most cases, the notebook can be run locally by just installing the required package versions with the following command (`requirements.txt` is assumed to be in the same directory as your notebook):
+
+```bash
+pip install requirements.txt
+```
+
+To replicate Colab’s operating system on local computer, this is the specifications of the Colab environment as of October 2023:
+
+```
+Python implementation: CPython
+Python version       : 3.10.12
+IPython version      : 7.34.0
+
+Compiler    : GCC 11.4.0
+OS          : Linux
+Release     : 5.15.120+
+Machine     : x86_64
+Processor   : x86_64
+CPU cores   : 2
+Architecture: 64bit
+```
+
+Make sure to do removal/add exception handler for any line in the form of `from google.colab import ...`!
